@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-rest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-rest
+  template:
+    metadata:
+      labels:
+        app: django-rest
+    spec:
+      containers:
+      - name: django-rest
+        image: rahulqelfo/django-rest:v1
+        imagePullPolicy: Always
+        env:
+        - name: LOAD_BALANCER_IP
+          value: 'LOAD_BALANCER_IP'
+
+
