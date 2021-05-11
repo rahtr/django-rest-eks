@@ -15,7 +15,7 @@ RUN git clone $GitRepo $WORKDIR
 
 # modify settings.py to add the dynamic ALLOWED_HOSTS variable. This is required to whitelist the AWS ALB DNS
 RUN sed -i "/ALLOWED_HOSTS/ s/^#*/#/" $WORKDIR/project/settings.py
-RUN sed -i "$ a ALLOWED_HOSTS = [os.environ.get('LOAD_BALANCER_IP', '*')]" $WORKDIR/project/settings.py
+RUN sed -i "$ a ALLOWED_HOSTS = [os.environ.get('LOAD_BALANCER_IP')]" $WORKDIR/project/settings.py
 
 # setup the environment and install python dependencies
 RUN pip install --upgrade pip

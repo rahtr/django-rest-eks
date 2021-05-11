@@ -165,5 +165,5 @@ $ curl --location --request GET 'a7696fa160a424a4f8650e473ca0a1a5-302710909.us-e
 ### Step 6 (Optional): Tear down
 Run the following command to delete the cluster. Please note that you would loose all the data:
 ````
-eksctl delete cluster -f cluster.yaml
+eksctl delete cluster -f aws-eks-cluster.yaml
 ````
